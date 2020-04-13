@@ -52,18 +52,11 @@ public class Game {
     public Game() {
         AUTH_LIST = getAuthList("auth_list.txt");
         playerOne = new Player(authorise("Player 1"));
-        //playerTwo = new Player(authorise("Player 2"));
+        playerTwo = new Player(authorise("Player 2"));
 
         AVAILABLE_CARDS = createCardList();
 
-        //play();
-
-        // test
-        for (int i = 0; i < 22; i++) {
-            playerOne.addToCollection("a");
-        }
-        updateLeaderBoard(playerOne);
-
+        play();
     }
 
 
