@@ -35,14 +35,17 @@ public class Game {
 
     private String authorise(String name) {
         Scanner sc = new Scanner(System.in);
-        for (int i = 0; i < 3; i++) { // gives them three tries
+        for (int i = 3; i > 0; i--) { // gives them three tries, in descending count order
+            System.out.println("---- ATTEMPT #"+i+" ----" );
             System.out.print(name + ", Enter your name: ");
             String input = sc.nextLine();
             if (AUTH_LIST.contains(input.toLowerCase())) { // if their name is valid
                 System.out.println("Welcome " + input + ", you are authorised to play the game.");
                 return input; // returns their name
             }
-            System.out.println("Incorrect");
+            if((i>0)){      //informs them how many more attempts they have left
+              System.out.print("You still have "+i+" attempts left");
+            }
         }
         System.out.println("You have had too many tries, exiting...");
         System.exit(1);
